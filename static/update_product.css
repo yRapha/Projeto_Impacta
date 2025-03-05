@@ -1,0 +1,59 @@
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9; /* Fundo claro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Centralizar o título */
+h1 {
+    text-align: center;
+    color: #333; /* Cor do texto */
+    margin-top: 20px;
+}
+
+/* Estilo do formulário */
+form {
+    background-color: white; /* Fundo branco do quadro */
+    padding: 20px; /* Espaçamento interno no formulário */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar o quadro */
+    width: 350px; /* Largura fixa do formulário */
+}
+
+form input {
+    width: calc(100% - 20px); /* Largura total menos o padding */
+    padding: 10px; /* Espaçamento interno nos campos */
+    margin-bottom: 15px; /* Espaçamento entre os campos */
+    border: 1px solid #ccc; /* Borda leve */
+    border-radius: 5px; /* Bordas arredondadas nos campos */
+}
+
+form button {
+    width: 100%; /* Botão ocupa toda a largura do formulário */
+    padding: 10px;
+    background-color: #007bff; /* Azul para o botão */
+    color: white; /* Texto branco no botão */
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas no botão */
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+/* Estilo do link "Voltar" */
+a {
+    text-decoration: none; /* Remove sublinhado do link */
+    color: #007bff; /* Azul para o link "Voltar" */
+    margin-top: 10px;
+}
+
+a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
