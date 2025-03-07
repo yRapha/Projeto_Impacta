@@ -1,8 +1,22 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.exc import SQLAlchemyError
+import pymysql
+pymysql.install_as_MySQLdb()
+
+# Adicionando imports para o teste de conexão
+from sqlalchemy import create_engine
+from sqlalchemy_utils import database_exists, create_database
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///items.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://nathalia:12345@localhost/projeto_impacta'
+
+# Teste de conexão com o banco de dados
+engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
+if not database_exists(engine.url):
+    create_database(engine.url)
+print(f"Database exists: {database_exists(engine.url)}")
+
 db = SQLAlchemy(app)
 
 class Item(db.Model):
@@ -47,5 +61,14 @@ def toggle_item(id):
 
 if __name__ == '__main__':
     with app.app_context():
-        db.create_all()
+        try:
+            db.create_all()
+            print("Conexão com o banco de dados estabelecida com sucesso!")
+        except SQLAlchemyError as e:
+            print(f"Erro ao conectar ao banco de dados: {e}")
+    
+    # Adicionando logs para depuração
+    import logging
+    logging.basicConfig(level=logging.DEBUG)
+    
     app.run(debug=True)
