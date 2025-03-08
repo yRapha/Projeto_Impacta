@@ -20,7 +20,7 @@ Este projeto é um sistema de gerenciamento de itens desenvolvido com Flask e My
 ## Configuração do Ambiente
 
 1. Clone o repositório:
-https://github.com/NathaliaRuffo/projeto_impacta.git
+https://github.com/yRapha/Projeto_Impacta
 
 2. Instale as dependências:
    pip install -r requirements.txt
